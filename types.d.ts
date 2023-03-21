@@ -2,10 +2,10 @@ export interface Page {
     count?:    number;
     next?:     string|null;
     previous?: string|null;
-    results?:  Result[]|null;
+    results?:  Character[]|null;
 }
 
-export interface Result {
+export interface Character {
     name?:       string;
     height?:     string;
     mass?:       string;
@@ -22,6 +22,23 @@ export interface Result {
     created?:    Date;
     edited?:     Date;
     url?:        string;
+}
+
+export interface Homeworld {
+    name?:            string;
+    rotation_period?: string;
+    orbital_period?:  string;
+    diameter?:        string;
+    climate?:         string;
+    gravity?:         string;
+    terrain?:         string;
+    surface_water?:   string;
+    population?:      string;
+    residents?:       string[];
+    films?:           string[];
+    created?:         Date;
+    edited?:          Date;
+    url?:             string;
 }
 
 export enum Gender {

@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import type { Page } from "../types";
+import type { Page } from "@/types";
+import type { Homeworld } from "@/types";
 
 export const swapiApi = createApi({
     reducerPath: 'swapiApi',
@@ -11,7 +12,14 @@ export const swapiApi = createApi({
         getPageByUrl: builder.query<Page, string>({
             query: (url) => url,
         }),
+        getHomeWorld: builder.query<Homeworld, string>({
+            query: (url) => ({
+                url: url,
+                baseUrl: "",
+            }),
+
+        }),
     })
 })
 
-export const { useGetPageQuery, useGetPageByUrlQuery } = swapiApi
+export const { useGetPageQuery, useGetPageByUrlQuery, useGetHomeWorldQuery } = swapiApi

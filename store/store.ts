@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { swapiApi } from './swapi';
-import fansSlice from './fans';
+import fansSlice from './fansSlice';
 
 export const store = configureStore({
     reducer: {

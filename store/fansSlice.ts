@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import type { Character } from "@/types";
 
 const initialState = {
-    fans: []
+    fans: [] as Character[]
 }
 
 export const fansSlice = createSlice({
