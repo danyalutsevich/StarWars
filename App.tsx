@@ -8,6 +8,7 @@ import MainScreen from './screens/MainScreen';
 import DetailsScreen from './screens/DetailsScreen';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
+import ClearFans from './components/ClearFans';
 
 const Stack = createStackNavigator();
 
@@ -26,9 +27,15 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Main" options={{ title: "Fans" }} component={MainScreen} />
+          <Stack.Screen name="Main" options={
+            {
+              title: "Fans",
+              headerTitleStyle: { fontFamily: "Inter_400Regular", fontWeight: "bold", fontSize: 30 },
+              headerRight: ClearFans,
+              headerRightContainerStyle: { zIndex: 10 }
+            }}
+            component={MainScreen} />
           <Stack.Screen name="Details" component={DetailsScreen} />
-
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
