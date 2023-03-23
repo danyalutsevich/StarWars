@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import type { Page } from "@/types";
-import type { Homeworld } from "@/types";
-import type { Species } from "@/types";
+import type { Page } from "../types";
+import type { Homeworld } from "../types";
+import type { Species } from "../types";
 
 export const swapiApi = createApi({
     reducerPath: 'swapiApi',

@@ -1,9 +1,8 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { StyleSheet, Text, View } from 'react-native';
+import { useSelector } from 'react-redux';
 
 export default function FansCounter() {
 
-    const fans = useSelector((state: any) => state.fans.fans);
     const maleCount = useSelector((state: any) => state.fans.maleCount);
     const femaleCount = useSelector((state: any) => state.fans.femaleCount);
     const otherCount = useSelector((state: any) => state.fans.otherCount);
@@ -50,7 +49,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontFamily: "Inter_400Regular"
     },
-    countText:{
+    countText: {
         fontSize: 16,
         fontFamily: "Inter_400Regular"
     }

@@ -1,5 +1,5 @@
 import { useGetSpeciesQuery } from '../store/swapi';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function Species({ speciesURL }) {
 

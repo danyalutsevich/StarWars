@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { useGetHomeWorldQuery, useGetSpeciesQuery } from '../store/swapi';
-import { Character } from '../types';
+import { useGetHomeWorldQuery } from '../store/swapi';
 
 export default function Homeworld({ homeworldURL }) {
 

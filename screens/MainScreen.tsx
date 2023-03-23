@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 
 import FansCounter from '../components/FansCounter';
 import CharacterTable from '../components/CharacterTable';
-import { saveState, loadState } from '../saveState';
-import { store } from '../store/store';
+import { loadState } from '../saveState';
 import { useDispatch } from 'react-redux';
 import { setFansState } from '../store/fansSlice';
 

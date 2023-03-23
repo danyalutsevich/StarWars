@@ -1,12 +1,9 @@
 import { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Dimensions} from 'react-native';
+import { StyleSheet, ScrollView} from 'react-native';
 
-import { Table, TableWrapper, Row, Rows, Col } from 'react-native-table-component';
-import { useGetPageQuery, useGetHomeWorldQuery, useGetSpeciesQuery } from '../store/swapi';
+import { useGetPageQuery } from '../store/swapi';
 import { DataTable, Button, ActivityIndicator, Searchbar} from 'react-native-paper';
 import { useSelector, useDispatch } from 'react-redux';
-import { Character } from '../types';
 import { addFan } from '../store/fansSlice';
 import { saveState } from '../saveState';
 import { store } from '../store/store';
@@ -39,7 +36,7 @@ export default function CharacterTable(props: any) {
                 </DataTable.Header>
                 {
                     data?.results
-                    .filter((ch)=>ch.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                    .filter((ch)=>ch.name.toLowerCase().includes(searchQuery.toLowerCase())) // filter the characters by search query
                     .map((character, index) => (
                         <DataTable.Row key={index} onPress={() => { props.navigation.navigate("Details", { character }) }}>
                             <DataTable.Cell textStyle={styles.text}>

@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
-import { Character, StarWarsCharacter } from '../types';
+import { Character } from '../types';
 import Homeworld from '../components/Homeworld';
 import Species from '../components/Species';
 import { useGetCharacterQuery } from '../store/starwars_api_for_Images';
