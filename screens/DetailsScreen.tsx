@@ -8,7 +8,6 @@ import { useGetCharacterQuery } from '../store/starwars_api_for_Images';
 export default function DetailsScreen(props) {
 
   const { character } = props.route.params as { character: Character };
-  props.navigation.setOptions({ title: character.name });
   const { data, isLoading } = useGetCharacterQuery(character.url);
 
 

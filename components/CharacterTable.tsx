@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { StyleSheet, ScrollView} from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 
 import { useGetPageQuery } from '../store/swapi';
-import { DataTable, Button, ActivityIndicator, Searchbar} from 'react-native-paper';
+import { DataTable, Button, ActivityIndicator, Searchbar } from 'react-native-paper';
 import { useSelector, useDispatch } from 'react-redux';
 import { addFan } from '../store/fansSlice';
 import { saveState } from '../saveState';
@@ -36,24 +36,24 @@ export default function CharacterTable(props: any) {
                 </DataTable.Header>
                 {
                     data?.results
-                    .filter((ch)=>ch.name.toLowerCase().includes(searchQuery.toLowerCase())) // filter the characters by search query
-                    .map((character, index) => (
-                        <DataTable.Row key={index} onPress={() => { props.navigation.navigate("Details", { character }) }}>
-                            <DataTable.Cell textStyle={styles.text}>
-                                <Button textColor='red'
-                                    icon={fans?.includes(character.name) ? "cards-heart" : "cards-heart-outline"}
-                                    onPress={() => {
-                                        dispatch(addFan(character))
-                                        saveState(store.getState().fans); // save state to local storage on press
-                                    }}> </Button>
-                            </DataTable.Cell>
-                            <DataTable.Cell textStyle={styles.text} style={styles.name}>{character.name}</DataTable.Cell>
-                            <DataTable.Cell textStyle={styles.text}>{character.birth_year}</DataTable.Cell>
-                            <DataTable.Cell textStyle={styles.text}>{character.gender}</DataTable.Cell>
-                            <DataTable.Cell textStyle={styles.text}>{character.homeworld}</DataTable.Cell>
-                            <DataTable.Cell textStyle={styles.text}>{character.species}</DataTable.Cell>
-                        </DataTable.Row>
-                    ))
+                        .filter((ch) => ch.name.toLowerCase().includes(searchQuery.toLowerCase())) // filter the characters by search query
+                        .map((character, index) => (
+                            <DataTable.Row key={index}>
+                                <DataTable.Cell textStyle={styles.text}>
+                                    <Button textColor='red' style={styles.fanButton}
+                                        icon={fans?.includes(character.name) ? "cards-heart" : "cards-heart-outline"}
+                                        onPress={() => {
+                                            dispatch(addFan(character))
+                                            saveState(store.getState().fans); // save state to local storage on press
+                                        }}> </Button>
+                                </DataTable.Cell>
+                                <DataTable.Cell onPress={() => { props.navigation.navigate("Details", { character }) }} textStyle={styles.text} style={styles.name}>{character.name}</DataTable.Cell>
+                                <DataTable.Cell textStyle={styles.text}>{character.birth_year}</DataTable.Cell>
+                                <DataTable.Cell textStyle={styles.text}>{character.gender}</DataTable.Cell>
+                                <DataTable.Cell textStyle={styles.text}>{character.homeworld}</DataTable.Cell>
+                                <DataTable.Cell textStyle={styles.text}>{character.species}</DataTable.Cell>
+                            </DataTable.Row>
+                        ))
                 }
 
                 <DataTable.Pagination
@@ -87,8 +87,11 @@ const styles = StyleSheet.create({
         borderColor: '#ddd',
         borderRadius: 5,
     },
-    searchbar:{
-        color:"black",
+    searchbar: {
+        color: "black",
         backgroundColor: '#fff',
+    },
+    fanButton: {
+        zIndex: 30,
     }
 });

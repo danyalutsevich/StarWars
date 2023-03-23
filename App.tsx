@@ -7,9 +7,11 @@ import DetailsScreen from './screens/DetailsScreen';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import ClearFans from './components/ClearFans';
+import * as SplashScreen from 'expo-splash-screen';
 
 const Stack = createStackNavigator();
 
+SplashScreen.preventAutoHideAsync();
 export default function App() {
 
   let [fontsLoaded] = useFonts({
@@ -20,6 +22,8 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
+
+  SplashScreen.hideAsync();
 
   return (
     <Provider store={store}>
