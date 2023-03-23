@@ -22,10 +22,6 @@ export default function MainScreen(props) {
       }
     })()
 
-    return () => {
-      saveState(store.getState().fans)
-    };
-
   }, []);
 
   return (

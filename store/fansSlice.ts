@@ -42,7 +42,10 @@ export const fansSlice = createSlice({
             state.otherCount = 0
         },
         setFansState: (state, action) => {
-            state = action.payload
+            state.fans = action.payload.fans
+            state.femaleCount = action.payload.femaleCount
+            state.maleCount = action.payload.maleCount
+            state.otherCount = action.payload.otherCount
         },
 
     },

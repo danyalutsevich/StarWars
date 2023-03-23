@@ -8,6 +8,8 @@ import { DataTable, Button, ActivityIndicator, Searchbar} from 'react-native-pap
 import { useSelector, useDispatch } from 'react-redux';
 import { Character } from '../types';
 import { addFan } from '../store/fansSlice';
+import { saveState } from '../saveState';
+import { store } from '../store/store';
 
 export default function CharacterTable(props: any) {
 
@@ -45,6 +47,7 @@ export default function CharacterTable(props: any) {
                                     icon={fans?.includes(character.name) ? "cards-heart" : "cards-heart-outline"}
                                     onPress={() => {
                                         dispatch(addFan(character))
+                                        saveState(store.getState().fans); // save state to local storage on press
                                     }}> </Button>
                             </DataTable.Cell>
                             <DataTable.Cell textStyle={styles.text} style={styles.name}>{character.name}</DataTable.Cell>

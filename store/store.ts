@@ -2,7 +2,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import { swapiApi } from './swapi';
 import { starwarsApi } from './starwars_api_for_Images';
 import fansSlice from './fansSlice';
-import { saveState } from '../saveState';
 
 export const store = configureStore({
     reducer: {
@@ -14,7 +13,3 @@ export const store = configureStore({
     .concat(swapiApi.middleware)
     .concat(starwarsApi.middleware),
 })
-
-store.subscribe(() => {
-    saveState(store.getState().fans);
-});
