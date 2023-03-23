@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import FansCounter from '../components/FansCounter';
 import CharacterTable from '../components/CharacterTable';
@@ -24,11 +24,11 @@ export default function MainScreen(props) {
   }, []);
 
   return (
-    <ScrollView>
+    <View style={styles.container}>
       <StatusBar style="auto" />
       <FansCounter />
       <CharacterTable navigation={props.navigation} />
-    </ScrollView>
+    </View>
   );
 }
 
