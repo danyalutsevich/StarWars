@@ -33,7 +33,7 @@ export default function App() {
               headerRightContainerStyle: { zIndex: 10 }
             }}
             component={MainScreen} />
-          {/* <Stack.Screen name="Details" component={DetailsScreen} /> */}
+          <Stack.Screen name="Details" component={DetailsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
