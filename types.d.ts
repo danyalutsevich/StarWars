@@ -64,3 +64,27 @@ export enum Gender {
     Male = "male",
     NA = "n/a",
 }
+
+export interface StarWarsCharacter {
+    id?:                 number;
+    name?:               string;
+    height?:             number;
+    mass?:               number;
+    gender?:             string;
+    homeworld?:          string;
+    species?:            string;
+    wiki?:               string;
+    image?:              string;
+    manufacturer?:       string;
+    productLine?:        string;
+    model?:              string;
+    class?:              string;
+    sensorColor?:        string;
+    platingColor?:       string;
+    equipment?:          string[];
+    affiliations?:       string[];
+    skinColor?:          string;
+    eyeColor?:           string;
+    born?:               number;
+    formerAffiliations?: any[];
+}

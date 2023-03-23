@@ -4,14 +4,35 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-nati
 
 import FansCounter from '../components/FansCounter';
 import CharacterTable from '../components/CharacterTable';
+import { saveState, loadState } from '../saveState';
+import { store } from '../store/store';
+import { useDispatch } from 'react-redux';
+import { setFansState } from '../store/fansSlice';
 
 export default function MainScreen(props) {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+
+    (async () => {
+      const state = await loadState();
+      if (state) {
+        dispatch(setFansState(state));
+      }
+    })()
+
+    return () => {
+      saveState(store.getState().fans)
+    };
+
+  }, []);
 
   return (
     <ScrollView>
       <StatusBar style="auto" />
       <FansCounter />
-      <CharacterTable navigation={props.navigation}/>
+      <CharacterTable navigation={props.navigation} />
     </ScrollView>
   );
 }

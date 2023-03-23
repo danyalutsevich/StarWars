@@ -7,7 +7,6 @@ export default function FansCounter() {
     const maleCount = useSelector((state: any) => state.fans.maleCount);
     const femaleCount = useSelector((state: any) => state.fans.femaleCount);
     const otherCount = useSelector((state: any) => state.fans.otherCount);
-    console.log(otherCount, maleCount, femaleCount)
     return (
         <View style={styles.container}>
             <View style={styles.countDisplay}>
