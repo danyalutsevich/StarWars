@@ -7,8 +7,13 @@ export const swapiApi = createApi({
     reducerPath: 'swapiApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://swapi.dev/api/' }),
     endpoints: (builder) => ({
-        getPage: builder.query<Page, number>({
-            query: (page) => `people/?page=${page}`,
+        getPage: builder.query<Page, {page: number, searchQuery: string}>({
+            query: ({page, searchQuery}) => `people/?page=${page}`,
+            transformResponse: (response: Page, meta, arg) => {
+                const {searchQuery} = arg
+                response.results = response.results.filter((person) => person.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                return response
+            },
         }),
         getPageByUrl: builder.query<Page, string>({
             query: (url) => url,

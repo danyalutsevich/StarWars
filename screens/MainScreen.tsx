@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f6f5f3',
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
   },
   text: {
     fontFamily: 'Inter_400Regular',

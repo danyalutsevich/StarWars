@@ -24,7 +24,7 @@ export const fansSlice = createSlice({
             }
         },
         removeFan: (state, action) => {
-            state.fans = state.fans.filter(fan => fan !== action.payload)
+            state.fans = state.fans.filter(fan => fan !== action.payload.name)
             if (action.payload.gender == "male") {
                 state.maleCount--
             }
