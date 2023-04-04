@@ -22,14 +22,14 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.posterpostmodern.star_wars"
+      "package": "com.pleaseopenai.star_wars"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "9052855f-70a9-4ace-864d-f210591f0434"
+        "projectId": "efe0d148-3f50-4704-a46b-bab3d3d99f39"
       }
     }
   }
